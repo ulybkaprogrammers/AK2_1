@@ -9,20 +9,21 @@ int main() {
 	double start, end;
 	double runTime;
 	start = omp_get_wtime();
-	int num = 1, primes = 0;
+	int x = 1,
+        int primeN = 0;
 
 	int limit = 1000000;
 
-#pragma omp parallel for schedule(dynamic) reduction(+ : primes)
-	for (num = 1; num <= limit; num++) {
+#pragma omp parallel for schedule(dynamic) reduction(+ : primeN)
+	for (x = 1; x <= limit; x++) {
 		int i = 2;
-		while (i <= num) {
-			if (num % i == 0)
+		while (i <= x) {
+			if (x % i == 0)
 				break;
 			i++;
 		}
 		if (i == num)
-			primes++;
+			primeN++;
 		}
 
 	end = omp_get_wtime();
