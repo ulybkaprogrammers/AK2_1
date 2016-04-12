@@ -12,15 +12,20 @@ int main() {
 	int x = 1,
         int primeN = 0;
 
-	int limit = 1000000;
+	int limit = 1000000000000;
 
 #pragma omp parallel for schedule(dynamic) reduction(+ : primeN)
 	for (x = 1; x <= limit; x++) {
 		int i = 2;
 		while (i <= x) {
 			if (x % i == 0)
-				break;
+			break;
 			i++;
+			
+			double y = i / 2;
+			double z = i * 2;
+			y *= 1000000000000;
+			z *= 1000000000000;
 		}
 		if (i == x)
 			primeN++;
