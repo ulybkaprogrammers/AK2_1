@@ -22,7 +22,7 @@ int main() {
 				break;
 			i++;
 		}
-		if (i == num)
+		if (i == x)
 			primeN++;
 		}
 
